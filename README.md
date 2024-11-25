@@ -37,6 +37,7 @@ And **Always must mock after mockimbap::mockable**
 So, you may do like this:
 ```rust
 // mock.rs
+#[return_at(foo, 1)]
 #[mock(Foo)]
 struct MockFoo;
 
