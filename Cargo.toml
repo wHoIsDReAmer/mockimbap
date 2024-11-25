@@ -1,7 +1,11 @@
 [package]
 name = "mockimbap"
+authors = ["Chanwook Lee <neverprogrammer@gmail.com>"]
+description = "Mockimbap is a macro for mocking Rust functions"
+repository = "https://github.com/neverprogrammer/mockimbap"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
 
 [lib]
 proc-macro = true
