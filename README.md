@@ -1,5 +1,5 @@
-# 🍙 Mockimbap
 <div align="center">
+<h1> 🍙 Mockimbap </h1>
 Mockimbap is a macro for mocking Rust functions
 
   [![Crates.io](https://img.shields.io/crates/v/mockimbap?color=green)](https://crates.io/crates/mockimbap)
