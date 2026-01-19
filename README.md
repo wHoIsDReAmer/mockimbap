@@ -18,40 +18,23 @@ mockimbap = "0.1.0"
 ## Example
 
 ```rust
-#[mockimbap::mockable]
+#[mockimbap::mockable(foo = 1)]
 trait Foo {
     fn foo(&self) -> i32;
 }
 
-#[return_at(foo, 1)]
-#[mock(Foo)]
-struct MockFoo;
+// Generates: struct MockFoo; impl Foo for MockFoo { ... }
 ```
 
 ## ❗️ Limitation
 Currently, the macro only supports mocking functions that return a value.
 The macro does not support mocking functions that take arguments.
 
-And **Always must mock after mockimbap::mockable**
-
-So, you may do like this:
+Mock structs are generated next to the trait to avoid expansion-order issues.
+You can optionally name the mock struct:
 ```rust
-// mock.rs
-#[return_at(foo, 1)]
-#[mock(Foo)]
-struct MockFoo;
-
-// main.rs
-#[mockimbap::mockable]
+#[mockimbap::mockable(MyMock, foo = 1)]
 trait Foo {
     fn foo(&self) -> i32;
 }
-
-fn main() {
-    let mock = MockFoo;
-    assert_eq!(mock.foo(), 1);
-}
-
-// Like this, you must put mock file after mockimbap::mockable
-mod mock;
 ```
